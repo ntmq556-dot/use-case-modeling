@@ -1,0 +1,39 @@
+CHƯƠNG 3. MÔ HÌNH HÓA CHỨC NĂNG
+
+Mô tả : use case có bên trong(dữ liệu , thuật toán,mã..) và bên ngoài (con người , thiết bị ..)
+
+Actor chính(primary) : chủ động kích hoạt cho mục tiêu và công việc
+Actor phụ(sencondary): con người , phản hồi
+Actor thì luôn luôn phụ thuộc vào include
+Use case có quan hệ mở rộng có điều kiện
+3.1. Xác định Actor và Mục tiêu
+Nhân viên bán hàng: Thanh toán, kiểm giá/tồn kho, áp dụng mã giảm giá.
+Actor : Con người
+Nhân viên kho: Quản lý, kiểm đếm tồn kho, nhập hàng từ nhà cung cấp.
+Actor : Con người
+Quản lý cửa hàng: Xem báo cáo doanh thu, quản lý danh mục sản phẩm, phân quyền.
+Actor : Con người
+Cổng thanh toán (Secondary Actor): Xác thực và phản hồi trạng thái thanh toán thẻ/QR.
+Actor : Hệ thống bên ngoài (sencondary actor)
+3.2. Danh sách Use Case
+Phân hệ Quản lý Bán hàng & Quầy thu ngân:
+UC01 – Thanh toán tại quầy: Cho phép nhân viên quét mã sản phẩm, tính tiền và xuất hóa đơn cho khách.
+UC02 – Áp dụng mã giảm giá: Cho phép kiểm tra và trừ tiền khuyến mãi vào đơn hàng.
+UC03 – Quản lý đổi trả hàng: Tiếp nhận và xử lý yêu cầu hoàn/đổi hàng từ khách hàng theo chính sách cửa hàng.
+Phân hệ Quản lý Kho & Bán buôn:
+UC04 – Nhập hàng vào kho: Ghi nhận lô hàng mới nhập từ nhà cung cấp và cập nhật số lượng tồn kho.
+UC05 – Kiểm kê hàng tồn kho: Đối soát số lượng thực tế trong kho với dữ liệu trên phần mềm.
+UC06 – Cảnh báo hết hàng: Tự động phát thông báo khi số lượng sản phẩm chạm ngưỡng tối thiểu.
+Phân hệ Quản trị & Báo cáo:
+UC07 – Thống kê báo cáo doanh thu: Xuất báo cáo doanh số theo ngày, tuần, tháng, năm hoặc theo ca làm việc.
+UC08 – Quản lý danh mục sản phẩm: Thêm, sửa, xóa thông tin hàng hóa, giá niêm yết.
+UC09 – Xác thực người dùng (Đăng nhập): Kiểm tra quyền truy cập và phân quyền thao tác cho từng vai trò.
+3.3. Sơ đồ Use Case tổng thể
+Nhân viên bán hàng thực hiện UC01, UC03. (UC02 extend UC01).
+Nhân viên kho thực hiện UC04, UC05.
+Quản lý cửa hàng thực hiện UC07, UC08.
+Tất cả Actor con người đều include UC09 (Đăng nhập) trước khi thực hiện chức năng.
+3.4. Quan hệ giữa các Use Case
+Include: UC01, UC04, UC07 bao gồm (include) UC09 để xác thực quyền truy cập.
+Extend: UC02 mở rộng (extend) cho UC01 khi có mã giảm giá; UC06 mở rộng cho UC05 khi tồn kho dưới ngưỡng an toàn.
+Generalization: UC01 chia nhỏ thành các nhánh thanh toán tiền mặt, QR code, thẻ POS
