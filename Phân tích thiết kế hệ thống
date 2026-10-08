@@ -1,0 +1,27 @@
+PHẦN 1. PHÂN TÍCH YÊU CẦU HỆ THỐNG
+1.1. Yêu cầu chức năng (Functional Requirements)
+Quản lý bán hàng & Thanh toán: 
+Cho phép nhân viên tìm kiếm/quét mã sản phẩm, tính tổng tiền, áp dụng voucher/mã giảm giá và in hóa đơn.
+Hỗ trợ nhiều hình thức thanh toán: tiền mặt, quét mã QR, thẻ ATM/Credit.
+Quản lý kho hàng:
++ Cho phép nhân viên kho nhập hàng, kiểm kê, cập nhật số lượng và vị trí lưu kho.
++Tự động cảnh báo khi sản phẩm xuống dưới ngưỡng tồn kho tối thiểu.
+
+Quản trị & Báo cáo:
++Cho phép Quản lý xem báo cáo doanh thu, lợi nhuận theo ca, ngày, tháng, năm.
++Cho phép thêm, sửa, xóa danh mục sản phẩm, đơn giá và phân quyền tài khoản nhân viên.
+
+1.2. Yêu cầu phi chức năng (Non-Functional Requirements)
+Hiệu năng (Performance): Thời gian xử lý tra cứu sản phẩm và tạo đơn hàng < 2 giây.
+Bảo mật (Security): Mật khẩu người dùng phải được mã hóa; hệ thống tự động đăng xuất sau 15 phút không hoạt động.
+Khả năng sử dụng (Usability): Giao diện đơn giản, tối ưu thao tác cảm ứng/bàn phím tại quầy POS, nhân viên mới có thể sử dụng sau 15 phút hướng dẫn.
+Độ tin cậy (Reliability): Hệ thống hoạt động ổn định 99.9%, có cơ chế tự động sao lưu dữ liệu cuối ngày.
+
+1.3. Quy tắc nghiệp vụ (Business Rules)
+BR01 (Chiết khấu): Mã giảm giá chỉ được áp dụng khi đơn hàng đạt giá trị tối thiểu theo quy định.
+
+BR02 (Khóa kho): Sản phẩm đã hết hàng trong hệ thống không thể thêm vào đơn thanh toán.
+
+BR03 (Hủy đơn/Đổi trả): Hóa đơn chỉ được hoàn/đổi trả trong vòng 7 ngày kể từ khi mua và phải kèm theo hóa đơn gốc.
+
+BR04 (Phân quyền): Chỉ tài khoản Quản lý mới có quyền chỉnh sửa giá bán và xem báo cáo doanh thu tổng.
